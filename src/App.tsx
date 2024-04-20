@@ -1,7 +1,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
+import Weaknesses from './pages/Weaknesses/Weaknesses';
 
 function App() {
 
@@ -9,18 +10,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />}> </Route>
+        <Route path='/weaknesses' element={<Weaknesses/>}></Route>
         <Route path='/' element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   )
 
-
-  // return (
-  //   <>
-  //     <h1>2024 Senior Design Website</h1>
-  //     <span> Images/username/password/video stuff will go here</span>
-  //   </>
-  // )
 }
 
 export default App
