@@ -59,11 +59,14 @@ const Login = () => {
     }) 
 
   return (
-    <form onSubmit={handleSubmit}>
-      {usernameField}
-      {passwordField}
-      <input type="submit" value="Submit"></input>
-    </form>
+    <>
+      <h1>2024 Senior Design: Group 7</h1>
+      <form onSubmit={handleSubmit}>
+        {usernameField}
+        {passwordField}
+        <input type="submit" value="Submit"></input>
+      </form>
+    </>
   );
 };
 
