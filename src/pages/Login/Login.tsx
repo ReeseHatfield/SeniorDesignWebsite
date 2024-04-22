@@ -30,7 +30,7 @@ const Login = () => {
     onChange={(event) => {
       setPassword(event.target.value);
     }}
-    ></input>);
+    ></input>); 
 
     const handleSubmit = (async (event: any) => {
       event.preventDefault(); // full submit override
@@ -53,6 +53,8 @@ const Login = () => {
       }
 
       alert("Welcom Anakin!");
+
+      localStorage.setItem("authed", "true");
 
       navigate("/weaknesses")
     
