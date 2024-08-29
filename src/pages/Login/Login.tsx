@@ -3,7 +3,7 @@ import { sha1 } from "crypto-hash";
 import { useNavigate } from "react-router-dom";
 
 const CORRECT_USERNAME = "Anakin";
-const CORRECT_PASSWORD = `94fefd07be649475095c356f752f2abe75c8498b`;
+const CORRECT_PASSWORD = `94fefd07be649475095c356f752f2abe75c8498b`; // this is a hash dw
 
 const Login = () => {
   const navigate = useNavigate();
