@@ -12,10 +12,6 @@ export function auth(req: Request, res: Response, next: NextFunction) {
     }
 
     const ok = id == global.sessionID;
-    console.log("Actual ID: " + global.sessionID);
-    console.log("Attempted ID: " + id);
-    console.log("Ok: " + ok);
-
     
     if(!ok){
         return res.status(401).json({
