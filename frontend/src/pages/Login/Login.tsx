@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { sha1 } from "crypto-hash";
 import { useNavigate } from "react-router-dom";
-
-const CORRECT_USERNAME = "Anakin";
-const CORRECT_PASSWORD = `94fefd07be649475095c356f752f2abe75c8498b`; // this is a hash dw
+import Video from "../../components/Video/Video";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,34 +32,42 @@ const Login = () => {
     const handleSubmit = (async (event: any) => {
       event.preventDefault(); // full submit override
 
-      const hashed_pw = await sha1(password)
-
       if(!password || !username){
         alert("Username and Password must be filled out");
         return;
       }
 
-      if(hashed_pw != CORRECT_PASSWORD){
-        alert("Incorrect username or password");
-        return;
-      }
+      fetch('http://localhost:3001/auth', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      })
+        .then((response) => {
+          if(response.status != 200){
+            alert("Incorrect Login");
+            return null
+          }
+          return response.json()
+        })
+        .then((data) => {
+          if (data != null) {
+            console.log("The response is", data); 
+            navigate("/weaknesses");
+          }
+        })
+        .catch((error) => console.error('Error:', error));
 
-      if(username != CORRECT_USERNAME){
-        alert("Incorrect username or password");
-        return
-      }
 
-      alert("Welcom Anakin!");
-
-      localStorage.setItem("authed", "true");
-
-      navigate("/weaknesses")
     
     }) 
 
   return (
     <>
       <h1>2024 Senior Design: Group 7</h1>
+      <Video youtubeLink="https://www.youtube.com/watch?v=zGwszApFEcY"/>
       <form onSubmit={handleSubmit}>
         {usernameField}
         {passwordField}

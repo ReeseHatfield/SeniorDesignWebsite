@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import Video from "../../components/Video/Video";
 
 const Weaknesses = () => {
 
-  const navigate = useNavigate();
-
-  if(localStorage.getItem("authed") != "true"){
-    alert("UNAUTHORIZED USER");
-    navigate("/");
-    return;
-  }
-
-  return <div>Weaknesses</div>;
+  return <>
+    <Video youtubeLink="https://www.youtube.com/watch?v=F2sERCgDESE" />
+    <h1>Weaknesses</h1>
+  </>;
 };
 
 export default Weaknesses;
