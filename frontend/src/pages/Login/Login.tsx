@@ -7,6 +7,7 @@ const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [pat, setPat] = useState("");
 
   const usernameField = (
     <input
@@ -29,6 +30,29 @@ const Login = () => {
     }}
     ></input>); 
 
+  
+
+  const patField = (
+    <input type="file" onChange={(event) => {
+      if (!event.target.files) return;
+
+      const file = event.target.files[0];
+
+      const fr = new FileReader(); // clientside file reading is gross
+      
+      fr.onload = (e) => {
+        if (e.target && typeof e.target.result === 'string') {
+          setPat(e.target.result);
+        }
+      }
+
+      fr.readAsText(file);
+
+    }}
+    ></input>
+  )
+
+
     const handleSubmit = (async (event: any) => {
       event.preventDefault(); // full submit override
 
@@ -42,7 +66,8 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: username,
-          password: password
+          password: password,
+          pat: pat
         })
       })
         .then((response) => {
@@ -73,6 +98,7 @@ const Login = () => {
       <h1>2024 Senior Design: Group 7</h1>
       <Video youtubeLink="https://www.youtube.com/watch?v=zGwszApFEcY"/>
       <form onSubmit={handleSubmit}>
+        {patField}
         {usernameField}
         {passwordField}
         <input type="submit" value="Submit"></input>

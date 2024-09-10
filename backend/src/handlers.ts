@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import fs, { glob } from "fs";
+import fs, { glob, readFileSync } from "fs";
 import path from "path";
 import { CORRECT_PW_HASH, genSessionID } from "./auth_constants";
 import crypto from 'crypto';
@@ -40,17 +40,35 @@ const getImagesInDir = (path: string) => {
 } 
 
 
+const readPAT = (path: string): string => {
+    const content = readFileSync(path);
+
+    return content.toString()
+}
+
+const verifyPAT = (attempedPAT: string): boolean => {
+    const truePATContent = readPAT(path.resolve(process.cwd() + "/pat/PAT"));
+
+    return truePATContent == attempedPAT;
+}
+
 export const authUser = (req: Request, res: Response) => {
     const attemptedUsername = req.body.username;
     const attemptedPassword = req.body.password;
+    const attempedPAT = req.body.pat;
 
-    console.log(req.body);
 
-    if(attemptedUsername == undefined || attemptedPassword == undefined){
+    if(!verifyPAT(attempedPAT)){
         return res.status(401).json({
-            error: "No username or password provided"
+            error: "Invalid personal access token"
         });
     }
+
+    if(attemptedUsername == undefined || attemptedPassword == undefined || attempedPAT == undefined){
+        return res.status(401).json({
+            error: "Missing Auth creditials"
+        });
+    }   
 
     // Username: ObiWan
     // Password: highground
