@@ -49,7 +49,8 @@ const readPAT = (path: string): string => {
 const verifyPAT = (attempedPAT: string): boolean => {
     const truePATContent = readPAT(path.resolve(process.cwd() + "/pat/PAT"));
 
-    return truePATContent == attempedPAT;
+    const result =  truePATContent == attempedPAT;
+    return result;
 }
 
 export const authUser = (req: Request, res: Response) => {

@@ -28,3 +28,4 @@ backend/images/*
 
 backend/pat/*
 !backend/pat/.gitkeep
+scripts/PAT
