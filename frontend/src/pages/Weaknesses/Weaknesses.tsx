@@ -42,7 +42,6 @@ const Weaknesses = () => {
     // })
     .then((data) => {
       const imagePromises = data["message"].map((path: string) => {
-        // Fetch each image separately with headers including the sessionID
         return fetch(`http://${location.hostname}:${backendPort}${path}`, {
           method: 'GET',
           headers: {
@@ -51,7 +50,7 @@ const Weaknesses = () => {
           },
         })
         .then(response => response.blob())
-        .then(blob => URL.createObjectURL(blob)); // Create a local URL for the blob
+        .then(blob => URL.createObjectURL(blob)); 
       });
     
       Promise.all(imagePromises).then((blobUrls) => {

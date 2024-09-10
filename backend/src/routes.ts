@@ -14,7 +14,7 @@ router.use("/images", auth,  express.static(imgDirPath));
 router.get("/images", auth, getImages);
 router.post("/auth", authUser);
 
-router.get("/getServerState", getServerState) // delete this, very insecure, used only for debugging
+// router.get("/getServerState", getServerState) // delete this, very insecure, used only for debugging
 
 
 export default router;
