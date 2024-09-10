@@ -54,8 +54,12 @@ const Login = () => {
         })
         .then((data) => {
           if (data != null) {
+            const sessionID = data["id"];
+
+            alert("Sucess: session ID is " + sessionID);
+
             console.log("The response is", data); 
-            navigate("/weaknesses");
+            navigate("/weaknesses", { state: sessionID});
           }
         })
         .catch((error) => console.error('Error:', error));

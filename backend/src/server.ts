@@ -47,14 +47,6 @@ function config(app: Application): Application {
     origin: frontEndPoint,
   }));
 
-  // // blanket allow all cors bc cors is hard
-  // app.use(function(req, res, next) {
-  //   res.header("Access-Control-Allow-Origin", "*");
-  //   res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  //   res.header("Accessontrol-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  //   next();
-  // });
-
   app.use(cors({
     origin: frontEndPoint,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
