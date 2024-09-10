@@ -25,3 +25,6 @@ dist-ssr
 
 backend/images/*
 !backend/images/.gitkeep
+
+backend/pat/*
+!backend/pat/.gitkeep

@@ -1,0 +1,4 @@
+# do not ignore this directory
+# but ignores its contents
+*
+!.gitkeep
