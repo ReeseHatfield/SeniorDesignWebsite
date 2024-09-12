@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Video from "../../components/Video/Video";
+import Video from "../../components/Video/Video.tsx";
 
 const Login = () => {
   const navigate = useNavigate();

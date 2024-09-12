@@ -1,5 +1,5 @@
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
-import Video from "../../components/Video/Video";
+import Video from "../../components/Video/Video.tsx";
 import { useState, useEffect } from "react";
 
 const backendPort = 3001;
