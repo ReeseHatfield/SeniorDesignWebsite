@@ -9,7 +9,7 @@ const Weaknesses = () => {
   const navigate: NavigateFunction = useNavigate();
   const { state } = useLocation();
   const sessionID = state;
-  const [images, setImages] = useState([]); // useState array scary
+  const [images, setImages] = useState<Array<string>>([]); // useState array scary
 
   useEffect(() => {
     if (sessionID === undefined) {
@@ -53,7 +53,7 @@ const Weaknesses = () => {
         .then(blob => URL.createObjectURL(blob)); 
       });
     
-      Promise.all(imagePromises).then((blobUrls) => {
+      Promise.all(imagePromises).then((blobUrls: any[]) => {
         setImages(blobUrls);
         console.log(blobUrls);
       });
