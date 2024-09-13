@@ -43,15 +43,17 @@ app.listen(port, '0.0.0.0', () => {
 
 function config(app: Application): Application {
   // allow cors from wherever the front end actually is
-  app.use(cors({
-    origin: frontEndPoint,
-  }));
+  // app.use(cors({
+  //   origin: frontEndPoint,
+  // }));
 
-  app.use(cors({
-    origin: frontEndPoint,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }));
+  // app.use(cors({
+  //   origin: frontEndPoint,
+  //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  //   allowedHeaders: ['Content-Type', 'Authorization'],
+  // }));
+
+  app.use(cors())
 
   app.use(express.json());
 
