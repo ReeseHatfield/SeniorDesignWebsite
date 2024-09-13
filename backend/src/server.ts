@@ -23,7 +23,7 @@ global.sessionID = "";
 app = config(app)
 app.use(routes)
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Backend TP server is running on http://localhost:${port}`);
 });
 
