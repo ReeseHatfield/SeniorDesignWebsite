@@ -5,7 +5,6 @@ import helmet from "helmet";
 
 const port = 5173;
 let app: Application = express();
-const frontEndPoint = "http://localhost:5173"; // change in prod / when someone implements https
 
 
 // used for user auth, add global state.
