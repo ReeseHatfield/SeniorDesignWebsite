@@ -3,7 +3,7 @@ import cors from 'cors';
 import routes from "./routes";
 import helmet from "helmet";
 
-const port = 3001;
+const port = 5173;
 let app: Application = express();
 const frontEndPoint = "http://localhost:5173"; // change in prod / when someone implements https
 
