@@ -3,7 +3,7 @@ import cors from 'cors';
 import routes from "./routes";
 import helmet from "helmet";
 
-const port = 5173;
+const port = 3001;
 let app: Application = express();
 
 
