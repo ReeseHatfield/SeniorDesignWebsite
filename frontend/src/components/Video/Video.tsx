@@ -1,4 +1,3 @@
-import Youtube from "react-player";
 
 interface VideoProps {
     youtubeLink: string;
