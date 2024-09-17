@@ -17,7 +17,7 @@ const Weaknesses = () => {
       navigate("/");
     }
 
-    fetch('http://localhost:3001/images', {
+    fetch('/api/images', {
       method: 'GET',
       headers: { 
         "Content-Type": "application/json",
