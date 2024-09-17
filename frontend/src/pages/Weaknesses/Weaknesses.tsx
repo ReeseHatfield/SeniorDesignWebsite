@@ -1,6 +1,7 @@
 import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
-import Video from "../../components/Video/Video.tsx";
+import video from "/secondPart.mp4"
 import { useState, useEffect } from "react";
+
 
 const backendPort = 3001;
 
@@ -64,7 +65,9 @@ const Weaknesses = () => {
   }, [sessionID, navigate]);
 
   return <>
-    <Video youtubeLink="https://www.youtube.com/watch?v=F2sERCgDESE" />
+      <video width="750" height="500" controls >
+        <source src={video} type="video/mp4"/>
+      </video>
     <h1>Weaknesses</h1>
     <div>
       {images.map((imagePath, index) => (

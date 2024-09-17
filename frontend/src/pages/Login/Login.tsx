@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Video from "../../components/Video/Video.tsx";
+import video from "/firstPart.mp4"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -96,7 +96,9 @@ const Login = () => {
   return (
     <>
       <h1>2024 Senior Design: Group 7</h1>
-      <Video youtubeLink="https://www.youtube.com/watch?v=zGwszApFEcY"/>
+      <video width="750" height="500" controls >
+        <source src={video} type="video/mp4"/>
+      </video>
       <form onSubmit={handleSubmit}>
         {patField}
         {usernameField}
