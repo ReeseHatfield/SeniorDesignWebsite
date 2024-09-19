@@ -26,7 +26,7 @@ const Weaknesses = () => {
       },
     })
     .then((response) => {
-      if (response.status != 200) { // use this as session check
+      if (!response.ok) { // use this as session check
         // alert -> nav feels bad, but works fine for this
         alert("Incorrect Login");
         navigate("/");
