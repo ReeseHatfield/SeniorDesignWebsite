@@ -10,8 +10,8 @@ const imgDirPath = path.join(__dirname + "/../images");
 
 
 // optional param here to like check for access or sum like that thru a header
-router.use("/images", auth,  express.static(imgDirPath));
-router.get("/images", auth, getImages);
+router.use("/images/", auth,  express.static(imgDirPath));
+router.get("/images/", auth, getImages); 
 router.post("/auth", authUser);
 
 router.get("/", getServerState)

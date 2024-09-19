@@ -18,7 +18,7 @@ const Weaknesses = () => {
       navigate("/");
     }
 
-    fetch('/api/images', {
+    fetch('/api/images/', {
       method: 'GET',
       headers: { 
         "Content-Type": "application/json",
