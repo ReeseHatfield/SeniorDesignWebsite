@@ -43,7 +43,7 @@ const Weaknesses = () => {
     // })
     .then((data) => {
       const imagePromises = data["message"].map((path: string) => {
-        return fetch(`http://${location.hostname}:${backendPort}${path}`, {
+        return fetch(`https://${location.hostname}:${backendPort}${path}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
