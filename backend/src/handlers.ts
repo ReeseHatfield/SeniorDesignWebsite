@@ -106,8 +106,6 @@ export const authUser = (req: Request, res: Response) => {
     http://localhost:3001/auth
 
     */
-   
-   
 }
 
 // should never be hit by end user

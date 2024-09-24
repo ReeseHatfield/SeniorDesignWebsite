@@ -3,7 +3,7 @@ import video from "/secondPart.mp4"
 import { useState, useEffect } from "react";
 
 
-const backendPort = 3001;
+const backendPort = 8443;
 
 const Weaknesses = () => {
 
