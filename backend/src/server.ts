@@ -26,7 +26,7 @@ app.use(routes)
 
 const server = https.createServer({
   key:  fs.readFileSync(`/etc/ssl/private/apache_cert.key`, 'utf-8'),
-  cert: fs.readFileSync(`/etc/ssl/private/apache-ssl-selfsigned.crt`, 'utf-8')
+  cert: fs.readFileSync(`/etc/ssl/certs/apache-ssl-selfsigned.crt`, 'utf-8')
 }, app);
 
 
