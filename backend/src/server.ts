@@ -30,12 +30,14 @@ const server = https.createServer({
 }, app);
 
 
-server.listen(8443); /// this port might be broken
+server.listen(8443, ()=> {
+  console.log(`Backend TP server is running on https:${8443}`);
+}); /// this port might be broken
 
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Backend TP server is running on http://localhost:${port}`);
-});
+// app.listen(port, '0.0.0.0', () => {
+//   console.log(`Backend TP server is running on http://localhost:${port}`);
+// });
 
 
 /* Testing with curl
