@@ -2,6 +2,8 @@ import express, { Express, Application, NextFunction } from "express";
 import cors from 'cors';
 import routes from "./routes";
 import helmet from "helmet";
+import https from 'https';
+import fs from 'fs';
 
 const port = 3001;
 let app: Application = express();
@@ -22,6 +24,15 @@ global.sessionID = "";
 app = config(app)
 app.use(routes)
 
+const server = https.createServer({
+  key:  fs.readFileSync(`/etc/ssl/private/apache_cert.key`, 'utf-8'),
+  cert: fs.readFileSync(`/etc/ssl/private/apache-ssl-selfsigned.crt`, 'utf-8')
+}, app);
+
+
+server.listen(443); /// this port might be broken
+
+
 app.listen(port, '0.0.0.0', () => {
   console.log(`Backend TP server is running on http://localhost:${port}`);
 });
@@ -41,17 +52,6 @@ app.listen(port, '0.0.0.0', () => {
  */
 
 function config(app: Application): Application {
-  // allow cors from wherever the front end actually is
-  // app.use(cors({
-  //   origin: frontEndPoint,
-  // }));
-
-  // app.use(cors({
-  //   origin: frontEndPoint,
-  //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  //   allowedHeaders: ['Content-Type', 'Authorization'],
-  // }));
-
   app.use(cors())
 
   app.use(express.json());
