@@ -16,7 +16,7 @@ router.post("/auth", authUser);
 
 router.get("/", getServerState)
 
-// router.get("/getServerState", getServerState) // delete this, very insecure, used only for debugging
+router.get("/getServerState", getServerState) // delete this, very insecure, used only for debugging
 
 
 export default router;
