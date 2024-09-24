@@ -44,10 +44,10 @@ const Weaknesses = () => {
     .then((data) => {
       const imagePromises = data["message"].map((path: string) => {
 
-        console.log(`Im about to fetch https://${location.hostname}:${backendPort}${path}`)
+        console.log(`Im about to fetch https://${location.hostname}:${backendPort}/api${path}`)
 
 
-        return fetch(`https://${location.hostname}:${backendPort}${path}`, {
+        return fetch(`https://${location.hostname}:${backendPort}/api${path}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
