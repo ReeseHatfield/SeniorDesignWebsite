@@ -5,7 +5,6 @@ import helmet from "helmet";
 import https from 'https';
 import fs from 'fs';
 
-const port = 3001;
 let app: Application = express();
 
 
